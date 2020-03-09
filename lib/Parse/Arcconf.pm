@@ -238,12 +238,12 @@ sub parse_config_fh
 			$current_physical_drive = $1;
 		} elsif ($line =~ /^\s+Device is (.*\w)/) {
 			$ctrl->{'physical drive'}{$current_physical_drive}{'Device is'} = $1;
-		} elsif ($line =~ /^\s+(.*\w)\s+:\s+(.*)$/) {
+		} elsif ($line =~ /^\s+(.*[\w\)\.]+)\s+:\s+(.*)$/) {
 			$ctrl->{'physical drive'}{$current_physical_drive}{$1} = $2;
 		} elsif ($line =~ /^\s+-+$/) {
 			last LEVEL3;
 		} elsif ($line =~ /^$/) {
-			last LEVEL2;
+			# last LEVEL2;
 		}
 	}
     }
